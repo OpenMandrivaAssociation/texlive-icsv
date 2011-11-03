@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /macros/latex/contrib/conferences/icsv
+# catalog-date 2008-05-21 23:07:53 +0200
+# catalog-license lppl
+# catalog-version 0.2
 Name:		texlive-icsv
 Version:	0.2
 Release:	1
@@ -44,6 +50,7 @@ conference, based on the earler active-conf by the same author.
 #- source
 %doc %{_texmfdistdir}/source/latex/icsv/icsv.dtx
 %doc %{_texmfdistdir}/source/latex/icsv/icsv.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -54,3 +61,5 @@ conference, based on the earler active-conf by the same author.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
