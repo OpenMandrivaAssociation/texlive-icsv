@@ -3,7 +3,7 @@ Version:	15878
 Release:	2
 Summary:	Class for typesetting articles for the ICSV conference
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/conferences/icsv
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/conferences/icsv
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/icsv.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/icsv.doc.r%{version}.tar.xz
