@@ -1,47 +1,22 @@
-Name:		texlive-icsv
-Version:	15878
-Release:	2
+%global tl_name icsv
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.2
+Release:	%{tl_revision}.1
 Summary:	Class for typesetting articles for the ICSV conference
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/conferences/icsv
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/icsv.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/icsv.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/icsv.source.r%{version}.tar.xz
+License:	lppl1.3c
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/icsv.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/icsv.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/icsv.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
 This is an ad-hoc class for typesetting articles for the ICSV
 conference, based on the earler active-conf by the same author.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/icsv/icsv.cls
-%doc %{_texmfdistdir}/doc/latex/icsv/README
-%doc %{_texmfdistdir}/doc/latex/icsv/icsv-example.tex
-%doc %{_texmfdistdir}/doc/latex/icsv/icsv.pdf
-#- source
-%doc %{_texmfdistdir}/source/latex/icsv/icsv.dtx
-%doc %{_texmfdistdir}/source/latex/icsv/icsv.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
